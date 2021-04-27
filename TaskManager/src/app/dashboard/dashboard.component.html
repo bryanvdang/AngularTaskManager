@@ -38,9 +38,7 @@
             <div class="col-12 text-center pt-2 pb-2" style="font-family:Arial">CLIENTS</div>
             <div class="col-12">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ABC Infotech Ltd.</li>
-                    <li class="list-group-item">DEF Software Solutions</li>
-                    <li class="list-group-item">GHI Industries</li>
+                    <li class="list-group-item" *ngFor ="let client of Clients">{{client}}</li>
                 </ul>
             </div>
         </div>
@@ -55,10 +53,7 @@
                                 Project A
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Project A</a>
-                                <a class="dropdown-item" href="#">Project B</a>
-                                <a class="dropdown-item" href="#">Project C</a>
-                                <a class="dropdown-item" href="#">Project D</a>
+                                <a class="dropdown-item" href="#" *ngFor="let project of Projects">{{project}}</a>
                             </div>
                         </div>
                     </div>
@@ -68,10 +63,7 @@
                                 2019
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">2019</a>
-                                <a class="dropdown-item" href="#">2018</a>
-                                <a class="dropdown-item" href="#">2017</a>
-                                <a class="dropdown-item" href="#">2016</a>
+                                <a class="dropdown-item" href="#" *ngFor="let year of Years">{{year}}</a>
                             </div>
                         </div>
                     </div>
@@ -95,57 +87,24 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-11 mx-auto mt-1 text-white text-center pt-2 pb-2 mx-auto rounded font-weight-bold" style="background-color: #718d97;
+            <div class="col-11 mx-auto mt-1 text-white text-center pt-2 pb-2 mx-2 rounded font-weight-bold" style="background-color: #718d97;
             font-family: 'Arial Narrow'">TEAM MEMBER SUMMARY</div>
             <div class="col-12">
-                <table class="table table-borderless">
+                <table class="table">
                     <tr>
                         <th>Region</th>
                         <th>Team Members Count</th>
                         <th>Temporarily Unavailable Members</th>
                     </tr>
-                    <tr>
+                    <tr *ngFor="let teamMembersSummary of TeamMembersSummary">
                         <td>
-                            <b>East</b>
+                            <b>{{teamMembersSummary.Region}}</b>
                         </td>
                         <td>
-                            20
+                            {{teamMembersSummary.TeamMembersCount}}
                         </td>
                         <td>
-                            4
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>South</b>
-                        </td>
-                        <td>
-                            15
-                        </td>
-                        <td>
-                            8
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>West</b>
-                        </td>
-                        <td>
-                            17
-                        </td>
-                        <td>
-                            1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>North</b>
-                        </td>
-                        <td>
-                            15
-                        </td>
-                        <td>
-                            6
+                            {{teamMembersSummary.TemporarilyUnavailableMembers}}
                         </td>
                     </tr>
                 </table>
@@ -158,11 +117,11 @@
             font-family: 'Arial Narrow'">TEAM MEMBERS</div>
             <div class="col-lg-12 pt-2">
                 <div class="accordion" id="accordion1">
-                    <div class="card">
+                    <div class="card" *ngFor="let teamMembersGroup of TeamMembers"> <!--Parent ngFor-->
                         <div class="card-header bg-secondary" id="card1">
                             <h2 class="mb-0">
                                 <button class="btn btn-link text-white" type="button" data-toggle="collapse" 
-                                data-target="#cardbody1">East</button>
+                                data-target="#cardbody1">{{teamMembersGroup.Region}}</button>
                             </h2>
                         </div>
                         <div id="cardbody1" class="collapse show" data-parent="#accordion1">
@@ -176,31 +135,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr *ngFor="let member of teamMembersGroup.Members"> <!--Child ngFor-->
                                             <td>1</td>
                                             <td>Ford</td>
                                             <td><i class="fa fa-phone"></i> Available</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Miller</td>
-                                            <td><i class="fa fa-phone"></i> Available</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Jones</td>
-                                            <td><i class="fa fa-user-times"></i> Busy</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Tim</td>
-                                            <td><i class="fa fa-user-times"></i> Busy</td>
                                         </tr>
                                     </tbody>
                                 </table>
