@@ -75,15 +75,15 @@
                 <table class="table table-borderless">
                     <tr>
                         <td>Project Cost</td>
-                        <td>${{ProjectCost}}</td>
+                        <td>{{ProjectCost | currency: "USD"}}</td>
                     </tr>
                     <tr>
                         <td>Current Expenditure</td>
-                        <td>${{CurrentExpenditure}}</td>
+                        <td>{{CurrentExpenditure | currency: "USD"}}</td>
                     </tr>
                     <tr>
                         <td>Available Funds</td>
-                        <td>${{AvailableFunds}}</td>
+                        <td>{{AvailableFunds | currency: "USD"}}</td>
                     </tr>
                 </table>
             </div>
